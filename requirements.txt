@@ -1,3 +1,4 @@
 requests
-geopy
-pyproj
+# geopy se elimina
+# pyproj se elimina
+# zoneinfo (ya es parte de Python 3.9+, Vercel usa 3.12)
