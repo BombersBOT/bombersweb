@@ -1,0 +1,22 @@
+{
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/get_incidents" }
+  ],
+  "builds": [
+    {
+      "src": "api/get_incidents.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/get_incidents",
+      "dest": "api/get_incidents.py",
+      "methods": ["GET", "POST"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "public/$1"
+    }
+  ]
+}
