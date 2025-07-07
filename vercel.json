@@ -7,6 +7,10 @@
   ],
   "routes": [
     {
+      "src": "/",
+      "dest": "/public/index.html"
+    },
+    {
       "src": "/api/get_incidents",
       "dest": "/api/get_incidents.py",
       "methods": ["GET", "POST"]
