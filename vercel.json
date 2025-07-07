@@ -1,7 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/get_incidents" }
-  ],
   "builds": [
     {
       "src": "api/get_incidents.py",
@@ -11,12 +8,16 @@
   "routes": [
     {
       "src": "/api/get_incidents",
-      "dest": "api/get_incidents.py",
+      "dest": "/api/get_incidents.py",
       "methods": ["GET", "POST"]
     },
     {
+      "src": "/api/(.*)",
+      "dest": "/api/get_incidents.py"
+    },
+    {
       "src": "/(.*)",
-      "dest": "public/$1"
+      "dest": "/public/$1"
     }
   ]
 }
