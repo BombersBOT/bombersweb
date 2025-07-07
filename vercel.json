@@ -3,13 +3,14 @@
     {
       "src": "api/get_incidents.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "public/**",  // Esta regla indica a Vercel que procese todos los archivos en 'public'
+      "use": "@vercel/static-build" // Y que los trate como archivos estáticos
     }
   ],
   "routes": [
-    {
-      "src": "/",
-      "dest": "/public/index.html"
-    },
+    // Rutas para la API (tu función Python)
     {
       "src": "/api/get_incidents",
       "dest": "/api/get_incidents.py",
@@ -19,9 +20,14 @@
       "src": "/api/(.*)",
       "dest": "/api/get_incidents.py"
     },
+    // Rutas para los archivos estáticos (HTML, CSS, JS)
     {
-      "src": "/(.*)",
-      "dest": "/public/$1"
+      "src": "/", // Cuando acceden a la URL raíz de tu proyecto
+      "dest": "/public/index.html" // Sirve el archivo index.html dentro de la carpeta public/
+    },
+    {
+      "src": "/(.*)", // Para cualquier otra ruta que no sea la raíz o la API (ej. /style.css, /script.js)
+      "dest": "/public/$1" // Sirve el archivo correspondiente desde la carpeta public/
     }
   ]
 }
