@@ -1,0 +1,12 @@
+{
+  "name": "bombers-web-alerts",
+  "version": "1.0.0",
+  "description": "Web para avisos de Bombers de Catalunya",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vercel": "^32.2.1"
+  }
+}
